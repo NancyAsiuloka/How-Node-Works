@@ -1,0 +1,1 @@
+setTimeout(() => console.log('Timer 1 is finished'), 0);
