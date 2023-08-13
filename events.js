@@ -29,6 +29,7 @@ const server = http.createServer();
 
 server.on('request', (req, res) => {
     console.log('Request received!');
+    console.log(req.url);
     res.end('Request received!');
 });
 
