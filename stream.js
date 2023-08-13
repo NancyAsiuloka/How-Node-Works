@@ -10,19 +10,26 @@ server.on('request', (req, res) => {
     //     res.end(data);
     // });
 
-    // solution 2 streams
+    // solution 2 streams and event
+    // const readable = fs.createReadStream('test-file.txt');
+    // readable.on('data', chunk => {
+    //     res.write(chunk);
+    // })
+    // readable.on('end', () => {
+    //     res.end();
+    // });
+    // readable.on('error', err => {
+    //     console.error(err);
+    //     res.statusCode = 500;
+    //     res.end('file not found');
+    // });
+
+    // Solution 3: Best one, using pipe operation
+    // to fix the problem of back pressure
     const readable = fs.createReadStream('test-file.txt');
-    readable.on('data', chunk => {
-        res.write(chunk);
-    })
-    readable.on('end', () => {
-        res.end();
-    });
-    readable.on('error', err => {
-        console.error(err);
-        res.statusCode = 500;
-        res.end('file not found');
-    })
+    readable.pipe(res);
+    // readableSource.pipe(writableDestination)
+
 });
 
 // restarting the server
