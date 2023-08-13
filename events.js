@@ -37,7 +37,7 @@ server.on('request', (req, res) => {
 });
 
 server.on('request', (req, res) => {
-    res.end('Another received!');
+    res.end('Another request!');
 });
 
 server.on('close', () => {
