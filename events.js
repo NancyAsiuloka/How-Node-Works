@@ -21,11 +21,7 @@ myEmitter.on('newSale', stock => {
     console.log(`There are now ${stock} items left in stock.`);
 });
 
-myEmitter.on('newSale', name => {
-    console.log(`The sales was made by ${name}.`)
-})
-
-myEmitter.emit('newSale', 9, 'Nancy');
+myEmitter.emit('newSale', 9);
 
 
 /////////////////////
@@ -37,7 +33,7 @@ server.on('request', (req, res) => {
 });
 
 server.on('request', (req, res) => {
-    res.end('Another request!');
+    console.log('Another request!');
 });
 
 server.on('close', () => {
