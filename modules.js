@@ -8,9 +8,10 @@ const C = require('./text-module-1');
 const calc1 = new C();
 console.log(calc1.add(2, 5));
 
-// when & how to use the export shorthand
+// when &  how to use the export shorthand
 // export
 // const calc2 = require('./test-module-2');
+// console.log(calc2.add(2, 5));
 
 // using Es6 to destructure it correctly
 const { add, multiply} = require('./test-module-2');
